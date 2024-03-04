@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main_container{
+    width:100vw;
+    height: 100vh;
+    display: flex;
+}
+.user_container{
+    width: 320px;
+    background-color: #002566;
+    padding: 1rem;
+    color: rgb(236, 236, 236);
+    flex-shrink: 0;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 4rem;
+}
+.user_container > h2{
+    text-align: center;
+}
+
+.user_list{
+    list-style: none;
+    display: flex ;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    height: 100%;
+    overflow: hidden;
+     
+}
+
+.user_list:hover{
+    overflow-y: scroll;
+}
+.user_item{
+    display: flex; 
+    height: 54px;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+}
+.user_item:hover{
+    border:  solid 1px #c1c1c177;
+}
+.item_img{
+    width: 45px;
+    overflow: hidden;
+    height: 45px;
+    border-radius: 100%;
+
+}
+.item_img > img{
+     width: 100%;
+}
+
+/* contenedor de la lista de chats */
+.chats_container{
+    width: 100%;
+    background-color: #003ca2;
+}
+
+
+
+/* scrollBar */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
