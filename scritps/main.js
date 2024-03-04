@@ -136,7 +136,7 @@ const defaultChats = [
             {
                 fechaEnvio: "2023-10-27 15:40:00",
                 mensaje: "Lo mismo por aquí, mucho trabajo. ¡Ánimo!",
-                remitente: "Miguel Salinas",
+                remitente: "Elena Torres",
             },
         ]
     },
@@ -166,7 +166,7 @@ const defaultChats = [
             {
                 fechaEnvio: "2023-10-27 17:00:00",
                 mensaje: "Hola Pablo, ¿qué tal estás?",
-                remitente: "Miguel Salinas",
+                remitente: "Pablo Martín",
             },
             {
                 fechaEnvio: "2023-10-27 17:05:00",
@@ -241,25 +241,29 @@ const defaultChats = [
         ]
     },]
 
-
-
-
-
 let usuarios = []
 
 defaultChats.forEach(element => {
     let conversacion = element.conversacion;
     let userId = element.userId
-    conversacion.forEach(chat => {
-        if (chat.remitente != 'Miguel Salinas') {
+ 
+    for (const chat of conversacion) {
+            if(chat.remitente != 'Miguel Salinas'){
+                usuarios.push(
+                    {
+                        id:userId, 
+                        nombre: chat.remitente
+                    }
+                )
 
-            usuarios.push({
+                break;
+            }
+    }
+ 
+        /*     usuarios.push({
                 id: userId,
-                nombre: chat.remitente
-            })
-
-        }
-    })
+                nombre:  conversacion.find(chat =>  chat.remitente != 'Miguel Salinas').remitente
+            }) */
 
 });
 
@@ -278,7 +282,8 @@ function addUser(id, userName) {
     </li>
     `
     user_list.innerHTML += itemComponent;
-} 
+    
+}
 
 
 
@@ -292,7 +297,7 @@ function addUserPro(id, userName) {
     img.alt = 'Random image'
 
     figure.classList.add('item_img')
-   
+
     figure.appendChild(img)
 
     span.textContent = userName
@@ -301,15 +306,17 @@ function addUserPro(id, userName) {
     li.id = id
 
     li.append(figure, span)
-    
+    li.addEventListener('click',  function() {
+            console.log(this)
+    })
+
     user_list.appendChild(li)
 }
 
-/* addUser(25, 'Ramses Lopez')
-addUser(31, 'Daniel Uribe')
-addUserPro(22, 'Junior Carrazco ')
-addUserPro(33, 'Jorge Sosa') */
+ 
+ /* 
+    function  -> puedo llamarla antes de declararla y  puedo detectar el origen de un evento con la this
+    arraFunction  -> no facilita el origen de donde se ejecuta y no puedo llamarla antes de declar
+ */
 
- console.log(usuarios)
-
- usuarios.forEach(usuario => addUserPro(usuario.id, usuario.nombre))
+usuarios.forEach(usuario => addUserPro(usuario.id, usuario.nombre))
