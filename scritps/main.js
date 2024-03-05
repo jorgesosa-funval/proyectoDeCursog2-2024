@@ -270,7 +270,6 @@ defaultChats.forEach(element => {
 
 
 /* Manupulacion del DOM creacion de elementos HTML desde JS */
-
 function addUser(id, userName) {
     let itemComponent = `
     <li class="user_item" id="${id}">
@@ -284,8 +283,6 @@ function addUser(id, userName) {
     user_list.innerHTML += itemComponent;
     
 }
-
-
 
 function addUserPro(id, userName) {
     const li = document.createElement('li')
@@ -307,16 +304,14 @@ function addUserPro(id, userName) {
 
     li.append(figure, span)
     li.addEventListener('click',  function() {
-            console.log(this)
+            const id = parseInt(this.id)
+            console.log(id)
     })
 
     user_list.appendChild(li)
 }
-
  
- /* 
-    function  -> puedo llamarla antes de declararla y  puedo detectar el origen de un evento con la this
-    arraFunction  -> no facilita el origen de donde se ejecuta y no puedo llamarla antes de declar
- */
-
 usuarios.forEach(usuario => addUserPro(usuario.id, usuario.nombre))
+
+
+
